@@ -82,14 +82,14 @@ import os
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_REGION_NAME = 'us-east-1' # Cambia a la región de tu bucket
+AWS_S3_REGION_NAME = 'us-east-2' # Cambia a la región de tu bucket
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = 'public-read' # Permisos para que las imágenes sean visibles públicamente
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 # Configuración de archivos de medios
-MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.us-east-2.amazonaws.com/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 import dj_database_url
