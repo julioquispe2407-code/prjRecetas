@@ -27,8 +27,3 @@ def nueva_receta(request):
     else:
         form = RecetaForm()
     return render(request, 'recetas/nueva.html', {'form': form})
-def run_migrations(request):
-    if not settings.DEBUG:
-        call_command('migrate')
-        return HttpResponse("Migrations applied successfully!")
-    return HttpResponse("Migrations can only be run in production.", status=403)
