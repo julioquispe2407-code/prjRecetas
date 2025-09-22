@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&9#i%*hhs=-v@)my&q+_l91o+86c8y3xt-u1k1w0^p98z1)ssi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['prjrecetas.onrender.com', '127.0.0.1', 'localhost'] #11/09/25 cambio para poder acceder desde celular (no funcionó)
 
