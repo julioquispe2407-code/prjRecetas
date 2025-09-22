@@ -27,3 +27,8 @@ def nueva_receta(request):
     else:
         form = RecetaForm()
     return render(request, 'recetas/nueva.html', {'form': form})
+def create_superuser_temp(request):
+    if not settings.DEBUG:
+        call_command('createsuperuser', '--noinput')
+        return HttpResponse("Superuser created successfully! Check the logs for username and password.")
+    return HttpResponse("Superuser can only be created in production.", status=403)
