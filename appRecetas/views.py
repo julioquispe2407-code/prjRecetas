@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Receta
 from .forms import RecetaForm
+from django.core.management import call_command
+from django.http import HttpResponse
+from django.conf import settings
 
 # Create your views here.
 # Vista para la lista de recetas
@@ -24,3 +27,8 @@ def nueva_receta(request):
     else:
         form = RecetaForm()
     return render(request, 'recetas/nueva.html', {'form': form})
+def run_migrations(request):
+    if not settings.DEBUG:
+        call_command('migrate')
+        return HttpResponse("Migrations applied successfully!")
+    return HttpResponse("Migrations can only be run in production.", status=403)
