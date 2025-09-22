@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nueva Receta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container my-5">
+        <div class="card p-4 shadow-sm">
+            <h1 class="card-title text-center mb-4">Agregar Nueva Receta</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
+                    {{ form.nombre }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.chef.id_for_label }}" class="form-label">Chef</label>
+                    {{ form.chef }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.descripcion.id_for_label }}" class="form-label">Descripción</label>
+                    {{ form.descripcion }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.fecha_publicacion.id_for_label }}" class="form-label">Fecha de Publicación</label>
+                    {{ form.fecha_publicacion }}
+                    <small class="form-text text-muted">Formato: DD-MM-AAA</small>
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.imagen.id_for_label }}" class="form-label">Imagen</label>
+                    {{ form.imagen }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.categoria.id_for_label }}" class="form-label">Categoría</label>
+                    {{ form.categoria }}
+                </div>
+                <button type="submit" class="btn btn-success w-100 mt-3">Guardar Receta</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
